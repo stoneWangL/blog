@@ -1,0 +1,4 @@
+baseURL = 'https://stoneWangL.github.io/blog/'
+languageCode = 'en-us'
+title = 'stoneWang'
+theme = "m10c"
