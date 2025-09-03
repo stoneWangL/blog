@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-us">
+  <head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+    <title>ZSH安装和配置 // stoneWang</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.149.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/blog/css/main.min.5b1fcc8902588589c4767187402a3c29f8b8d7a6fdef6d9f8f77045bb0d14fee.css" />
+    
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ZSH安装和配置">
+  <meta name="twitter:description" content="[TOC]
+1 安装 1.1 安装zsh 安装zsh sudo apt-get install zsh 看下zsh的位置 which zsh 将上述步骤中的zsh设置为默认的Shell chsh -s /bin/zsh 1.2 安装 on my zsh # 下载所需的构建工在这里插入代码片具和依赖项 apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev # 使用一行命令安装(第一行可以) #方式1 curl sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34; #方式2 wget sh -c &#34;$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34; #方式3 fetch sh -c &#34;$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34; # 切换风格 vi ~/.zshrc ## 修改 #ZSH_THEME=&#34;robbyrussell&#34; ZSH_THEME=&#34;ys&#34; # 新风格ok 2 FAQ 2.1 问题1 # 报错 zsh: corrupt history file /home/XXX/.zsh_history # 解决方法 cp .zsh_history zsh_history rm -f .zsh_history strings zsh_history .zsh_history #OK了，修复成功。">
+
+    <meta property="og:url" content="http://localhost:1313/blog/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+  <meta property="og:site_name" content="stoneWang">
+  <meta property="og:title" content="ZSH安装和配置">
+  <meta property="og:description" content="[TOC]
+1 安装 1.1 安装zsh 安装zsh sudo apt-get install zsh 看下zsh的位置 which zsh 将上述步骤中的zsh设置为默认的Shell chsh -s /bin/zsh 1.2 安装 on my zsh # 下载所需的构建工在这里插入代码片具和依赖项 apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev # 使用一行命令安装(第一行可以) #方式1 curl sh -c &#34;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34; #方式2 wget sh -c &#34;$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34; #方式3 fetch sh -c &#34;$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&#34; # 切换风格 vi ~/.zshrc ## 修改 #ZSH_THEME=&#34;robbyrussell&#34; ZSH_THEME=&#34;ys&#34; # 新风格ok 2 FAQ 2.1 问题1 # 报错 zsh: corrupt history file /home/XXX/.zsh_history # 解决方法 cp .zsh_history zsh_history rm -f .zsh_history strings zsh_history .zsh_history #OK了，修复成功。">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-02T17:49:30+08:00">
+    <meta property="article:modified_time" content="2025-09-02T17:49:30+08:00">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="/blog/"><img class="app-header-avatar" src="/blog/avatar.jpg" alt="John Doe" /></a>
+      <span class="app-header-title">stoneWang</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">ZSH安装和配置</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Sep 2, 2025
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          1 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>[TOC]</p>
+<h1 id="1-安装">1 安装</h1>
+<h1 id="11-安装zsh">1.1 安装zsh</h1>
+<pre tabindex="0"><code>安装zsh
+sudo apt-get install zsh
+看下zsh的位置
+which zsh
+将上述步骤中的zsh设置为默认的Shell
+chsh -s /bin/zsh
+</code></pre><h2 id="12-安装-on-my-zsh">1.2 安装 on my zsh</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 下载所需的构建工在这里插入代码片具和依赖项</span>
+</span></span><span style="display:flex;"><span>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用一行命令安装(第一行可以)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#方式1 curl</span>
+</span></span><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#方式2 wget</span>
+</span></span><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#方式3 fetch</span>
+</span></span><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 切换风格</span>
+</span></span><span style="display:flex;"><span>vi ~/.zshrc
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 修改</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ZSH_THEME=&#34;robbyrussell&#34;</span>
+</span></span><span style="display:flex;"><span>ZSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ys&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 新风格ok </span>
+</span></span></code></pre></div><h1 id="2-faq">2 FAQ</h1>
+<h2 id="21-问题1">2.1 问题1</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># 报错</span>
+</span></span><span style="display:flex;"><span>zsh: corrupt history file /home/XXX/.zsh_history
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 解决方法</span>
+</span></span><span style="display:flex;"><span>cp .zsh_history zsh_history
+</span></span><span style="display:flex;"><span>rm -f .zsh_history 
+</span></span><span style="display:flex;"><span>strings zsh_history .zsh_history
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#OK了，修复成功。</span>
+</span></span></code></pre></div>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
